@@ -1,5 +1,3 @@
-// src/components/Header.js
-
 import React from "react";
 import {
   Container,
@@ -9,12 +7,15 @@ import {
   Navbar,
   NavDropdown,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
-        <Navbar.Brand href="/">Note Zipper</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          Note Zipper
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <nav className="m-auto">
@@ -27,12 +28,14 @@ const Header = () => {
               />
             </Form>
           </nav>
-          <Nav >
-            <Nav.Link href="#home">My Notes</Nav.Link>
+          <Nav>
+            <Nav.Link as={Link} to="/mynotes">
+              My Notes
+            </Nav.Link>
             <NavDropdown title="Sithira Janiya" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">My Profile</NavDropdown.Item>
+              <NavDropdown.Item href="#profile">My Profile</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">LogOut</NavDropdown.Item>
+              <NavDropdown.Item href="#logout">LogOut</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

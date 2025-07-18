@@ -1,16 +1,22 @@
-import "./App.css";
-import Footer from "./components/Footer/Footer";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import LandingPage from "./screens/LandingPage/LandingPage";
+import MyNotes from "./screens/MyNotes/MyNotes";
 
 const App = () => (
-    <>
-    <Header/>
+  <BrowserRouter>
+    <Header />
     <main>
-        <LandingPage />
+      <Routes>
+        <Route path="/" element={<LandingPage />} exact />
+        <Route path="/mynotes" element={<MyNotes />} />
+      </Routes>
     </main>
-    <Footer/>
-    </>
+    <Footer />
+  </BrowserRouter>
 );
 
 export default App;
